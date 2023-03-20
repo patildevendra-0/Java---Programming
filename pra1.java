@@ -1,37 +1,55 @@
-import java.util.Scanner;
+import java.util.*;
 
-class Arithematic
+class Year
 {
-    public int iValue1;
-    public int iValue2;
-
-    public Arithematic(int iNo1,int iNo2)
+    public void CheckLeapYear(int Year)
     {
-        iValue1 = iNo1;
-        iValue2 = iNo2;
+        if(Year%400==0)
+        {
+            System.out.println(Year+" is leap year");
+        }
+        else if(Year%100==0)
+        {
+            System.out.println(Year+" is not leap year");
+        }
+        else if(Year%4==0)
+        {
+            System.out.println(Year+" is leap year");
+        }
+        else
+        {
+            System.out.println(Year+" is not leap year");
+        }
     }
-
-    public int Addition()
+    public void DisplayLeapYear(int year)
     {
-        int iAns = iValue1+iValue2;
-        return iAns;
+        int iCnt = 0;
+        for(iCnt=1800;iCnt<=year;iCnt++)
+        {
+            if(iCnt%400==0)
+            {
+                System.out.println("leap year: "+iCnt);
+            }
+            else if(iCnt%4==0)
+            {
+                System.out.println("leap year: "+iCnt);
+            }
+        }
     }
-
-    public int Substraction()
+    public void Leap(int Start,int End)
     {
-        int iAns = iValue1-iValue2;
-        return iAns;
-    }
-
-    public int Multiplication()
-    {
-        int iAns = iValue1*iValue2;
-        return iAns;
-    }
-    public int Division()
-    {
-        int iAns = iValue1/iValue2;
-        return iAns;
+        int iCnt = 0;
+        for(iCnt = Start;iCnt<=End;iCnt++)
+        {
+            if(iCnt%400==0)
+            {
+                System.out.println("leap year: "+iCnt);
+            }
+            else if(iCnt%4==0)
+            {
+                System.out.println("leap year: "+iCnt);
+            }
+        }
     }
 }
 
@@ -40,28 +58,21 @@ class pra1
     public static void main(String arr[])
     {
         Scanner sobj = new Scanner(System.in);
+        
+        System.out.println("Enter the YEAR: ");
+        int iyear = sobj.nextInt();
 
-        System.out.println("Enter the 1st number: ");
-        int ino1 = sobj.nextInt();
+        Year yobj = new Year();
+        yobj.CheckLeapYear(iyear);
 
-        System.out.println("Enter the 2nd Number: ");
-        int ino2 = sobj.nextInt();
+        yobj.DisplayLeapYear(iyear);
 
-        Arithematic aobj = new Arithematic(ino1,ino2);
 
-        int iret = 0;
+        System.out.println("Enter the start YEAR: ");
+        int iStart = sobj.nextInt();
+        System.out.println("Enter the end YEAR: ");
+        int iEnd = sobj.nextInt();
 
-        iret = aobj.Addition();
-        System.out.println("Addition is: "+iret);
-
-        iret = aobj.Substraction();
-        System.out.println("Subtracsion is: "+iret);
-
-        iret = aobj.Multiplication();
-        System.out.println("Multiplication is: "+iret);
-
-        iret = aobj.Division();
-        System.out.println("division is: "+iret);
+        yobj.Leap(iStart,iEnd);   
     }
-
 }
